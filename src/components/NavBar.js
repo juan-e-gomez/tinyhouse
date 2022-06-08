@@ -1,3 +1,5 @@
+import CartWidget from "./CartWidget";
+
 const NavBar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -17,7 +19,10 @@ const NavBar = () => {
                     <a className="nav-link" href="#">Pricing</a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#">Contact</a>
+                    <a className="nav-link" href="#">Contacto</a>
+                </li>
+                <li className="nav-item">
+                    <CartWidget />
                 </li>
                 </ul>
             </div>
