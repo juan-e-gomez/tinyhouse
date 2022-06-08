@@ -1,5 +1,5 @@
-import NavBar from "./NavBar";
-import Webimage from "./Webimage"
+import NavBar from "./components/NavBar";
+import Webimage from "./components/Webimage"
 
 const Header = () => {
     return (

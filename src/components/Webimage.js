@@ -1,4 +1,4 @@
-import pic from './logox64.png';
+import pic from '../img/logox64.png';
 
 function Webimage() {
   return (
