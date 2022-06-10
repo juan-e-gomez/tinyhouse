@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function ItemCount({ stock, initial }) {
+function ItemCount({ stock, initial, onAdd}) {
 
     const [count, setCount] = useState(initial);
 
@@ -20,7 +20,7 @@ function ItemCount({ stock, initial }) {
             <button onClick={minus}> -1 </button>
             <span>  {count}  </span>
             <button onClick={add}> +1 </button>
-            <button> Agregar al carrito </button>
+            <button onClick={onAdd}> Agregar al carrito </button>
         </div>
     );
 }
