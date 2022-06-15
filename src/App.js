@@ -8,7 +8,7 @@ function App () {
         <>
             <Header/>
             <Main/>
-            <ItemListContainer greeting="Bienvenido!"/>
+            <ItemListContainer/>
             <Footer/>
         </>
     )
