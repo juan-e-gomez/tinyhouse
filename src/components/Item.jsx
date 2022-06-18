@@ -1,14 +1,14 @@
-import React from 'react'
-import ItemCount from './ItemCount'
+import React from "react"
+import ItemCount from "./ItemCount"
 
-function Item({id, name, image, stock}) {
+const Item = ({item}) => {
   return (
-    <div className="container-fluid">
-        <h4>{name}</h4>
-        <img src={image} alt={id} />
-        <ItemCount stock={stock} initial={0} onAdd={()=>{}}/>
+    <div className="item" style={{ margin: '10px 20px', border: '2px solid black' }}>
+      <h4>{item.title}</h4>
+      <img src={item.image} alt="thumbnail" width="200" />
+      <p>Precio : ${item.price}</p>
+      <ItemCount stock={10} initial={0} onAdd={()=>{}}/>
     </div>
   )
 }
-
 export default Item

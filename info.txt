@@ -1,0 +1,17 @@
+fetch('https://fakestoreapi.com/products')
+            .then(res=>res.json())
+            .then(json=>console.log(json))
+
+
+
+
+fetch('https://fakestoreapi.com/products'),{
+    method:'POST',
+    headers:{
+        'Content-Type':'application/json'
+    },
+    body:JSON.stringify({
+        name:'iPhone X',
+        price:999.99
+    })
+}

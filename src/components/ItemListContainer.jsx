@@ -1,21 +1,36 @@
 import React, { useEffect, useState } from 'react'
-import customFetch from '../misc/customFetch'
-import productos from '../misc/productos'
 import ItemList from './ItemList'
+import ItemCount from './ItemCount'
+import { ProductLoader } from "./ProductLoader"
 
-function ItemListContainer() {
-    const [items, setItems] = useState([])
+function ItemListContainer({greeting}) {
+  const [items, setItems] = useState([])
+  const [loading, setLoading] = useState(true)
 
-    useEffect(() => {
-        customFetch(3000, productos)
-        .then(r => setItems(r))
-    }, [items])
+  useEffect(() => {
 
+    setLoading(true)
+
+    fetch('https://fakestoreapi.com/products?limit=10')
+    .then((response) => {
+      const p = response.json()
+      return p
+    })
+    .then((productos) => {
+      setItems(productos)
+      setLoading(false)
+    })
+    .catch((error) => {
+      console.log(error)
+    })}, [])
 
   return (
-    <div className="container-fluid">
-        <ItemList products= {items}/>
+    <>
+    <div>
+      <h1>{greeting}</h1>
+      {loading ? <ProductLoader /> : <ItemList items={items} />}
     </div>
+    </>
   )
 }
 

@@ -1,17 +1,13 @@
 import React from 'react'
 import Item from './Item'
 
-function ItemList({products}) {
+const ItemList = ({items}) => {
   return (
-    products.map(p => 
-        <Item
-        id ={p.id} 
-        name ={p.name}
-        image = {p.image}
-        stock = {p.stock}
-        />
-        )
+    <section className='products-container'>
+      {items.map(item => (
+        <Item key={item.id} item={item} />
+      ))}
+    </section>
   )
 }
-
 export default ItemList
