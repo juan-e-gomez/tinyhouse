@@ -4,4 +4,5 @@ import App from './App';
 import "./styles/estilos.css";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(<App />);

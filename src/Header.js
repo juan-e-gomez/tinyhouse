@@ -4,7 +4,7 @@ import Webimage from "./components/Webimage"
 const Header = () => {
     return (
         <header className="container-fluid bg-light">
-            <Webimage />
+            <Webimage/>
             <NavBar/>
         </header>
     )

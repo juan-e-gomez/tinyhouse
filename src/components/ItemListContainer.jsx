@@ -1,34 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import ItemList from './ItemList'
-import ItemCount from './ItemCount'
-import { ProductLoader } from "./ProductLoader"
+import {useParams} from 'react-router-dom'
 
 function ItemListContainer({greeting}) {
   const [items, setItems] = useState([])
-  const [loading, setLoading] = useState(true)
+
+  const {categoryId} = useParams()
 
   useEffect(() => {
 
-    setLoading(true)
-
-    fetch('https://fakestoreapi.com/products?limit=10')
+    fetch(`https://fakestoreapi.com/products/category/${categoryId}`)
     .then((response) => {
       const p = response.json()
       return p
     })
-    .then((productos) => {
-      setItems(productos)
-      setLoading(false)
+    .then((products) => {
+      setItems(products)
     })
     .catch((error) => {
       console.log(error)
-    })}, [])
+    })}, [categoryId])
 
   return (
     <>
     <div>
       <h1>{greeting}</h1>
-      {loading ? <ProductLoader /> : <ItemList items={items} />}
+      <ItemList items={items}/>
     </div>
     </>
   )
