@@ -20,7 +20,10 @@ const NavBar = () => {
                     <Link className="nav-link" to="category/jewelery">Jewelery</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="category/clothing">Men's clothing</Link>
+                    <Link className="nav-link" to="category/men's%20clothing">Men's clothing</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="category/women's%20clothing">Women's clothing</Link>
                 </li>
                 <li className="nav-item">
                     <CartWidget />

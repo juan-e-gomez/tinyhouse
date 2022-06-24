@@ -7,8 +7,8 @@ const Main = () => {
         <main className="container-fluid">
             <Routes>
                 <Route path="/" element={<ItemListContainer greeting={"Bienvenidos!"}/>} />
-                <Route path="/category/:categoryId" element={<ItemListContainer greeting={"Una categoria"}/>} />
-                <Route path="/item/:itemId" element={<ItemDetailContainer />} />
+                <Route path="/category/:categoryId" element={<ItemListContainer greeting={"Una categoría"}/>} />
+                <Route path="/item/:id" element={<ItemDetailContainer />} />
             </Routes>
         </main>
     )

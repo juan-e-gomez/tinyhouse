@@ -16,11 +16,11 @@ function ItemCount({ stock, initial, onAdd}) {
         }
     }
     return (
-        <div>
-            <button onClick={minus}> -1 </button>
-            <span>  {count}  </span>
-            <button onClick={add}> +1 </button>
-            <button onClick={onAdd}> Agregar al carrito </button>
+        <div className="container-fluid">
+            <button className="btn btn-success mx-lg-2" onClick={minus}> -1 </button>
+            <span className="mx-lg-2">  {count}  </span>
+            <button className="btn btn-success mx-lg-2" onClick={add}> +1 </button>
+            <button className="btn btn-success mx-lg-2" onClick={onAdd}> Agregar al carrito </button>
         </div>
     );
 }
