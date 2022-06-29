@@ -1,13 +1,19 @@
 import { useState } from "react"
+import React, { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 import ItemCount from "./ItemCount";
 
 function ItemDetail ({item}) {
+
+    const cartValues = useContext(CartContext);
+    console.log(cartValues);
     
-    const [cant, setCant] = useState(true)
+    const [cant, setCant] = useState(0)
 
     const onAdd = (cant) => {
         setCant(cant)
-        console.log(cant)
+        console.log("La cantidad seleccionada es "+ cant)
+        cartValues.addItem(item, cant)
     }
 
     return (
