@@ -27,7 +27,7 @@ export const CartProvider = ({ children }) => {
     }
 
     const clearCart = () => {
-        // setCarrito()
+        setCarrito([]);
     }
 
     const isInCart = (itemId) => {
