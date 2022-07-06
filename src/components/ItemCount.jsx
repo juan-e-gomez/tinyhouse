@@ -25,7 +25,7 @@ function ItemCount({ stock, initial, onAdd}) {
             <span className="mx-lg-2">  {count}  </span>
             <button className="btn btn-success mx-lg-2" onClick={add}> +1 </button>
             <button className="btn btn-success mx-lg-2" onClick={confirm}> Confirmar </button>
-            <Link className="btn btn-success mx-lg-2" to="/carrito"> Terminar mi compra </Link>
+            <Link id="cart" className="btn btn-success mx-lg-2" to="/carrito"> Terminar mi compra </Link>
         </div>
     );
 }

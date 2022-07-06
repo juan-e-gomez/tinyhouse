@@ -19,27 +19,27 @@ const Cart = () => {
     }
 
     return (
-    <div className="container-fluid">
-        <h2>El carrito contiene: </h2>
-        <div>
-            {actualCart.map(({ title, price, index, quantity }) => (
-            <li key={index}> {quantity} x {title} - U$S {price} </li>
-            ))}
+        <div className="container-fluid">
+            <h2>El carrito contiene: </h2>
+            <div>
+                {actualCart.map(({ title, price, index, quantity }) => (
+                <li key={index}> {quantity} x {title} - U$S {price} </li>
+                ))}
+            </div>
+            <form key="form" onSubmit={handleSubmit}>
+                <div>
+                    <input type="text" id="nombre" placeholder="Nombre"/>
+                </div>
+                <div>
+                    <input type="email" id="email" placeholder="e-mail"/>
+                </div>
+                <div>
+                    <input type="number" id="number" placeholder="Telefono"/>
+                </div>
+                <button className="btn btn-success mx-lg-2"> Comprar </button>
+            </form>
+            <button className="btn btn-success mx-lg-2" onClick={cartValues.clearCart}> Clear </button>
         </div>
-        <form onSubmit={handleSubmit}>
-            <div>
-                <input type="text" id="nombre" placeholder="Nombre"/>
-            </div>
-            <div>
-                <input type="email" id="email" placeholder="e-mail"/>
-            </div>
-            <div>
-                <input type="number" id="number" placeholder="Telefono"/>
-            </div>
-            <button className="btn btn-success mx-lg-2"> Comprar </button>
-        </form>
-        <button className="btn btn-success mx-lg-2" onClick={cartValues.clearCart}> Clear </button>
-    </div>
     )
 }
 
