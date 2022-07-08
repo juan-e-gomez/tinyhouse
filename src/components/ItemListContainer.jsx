@@ -8,40 +8,46 @@ import { getDocs, collection, query, where } from "firebase/firestore"
 const ItemListContainer = ({greeting}) => {
 
   const [items, setItems] = useState([])
-  const {categoryId} = useParams()
+  const {category} = useParams()
 
   useEffect(() => {
 
+    if(category) {
+
+    const collectionItems = collection(db, "items")
+    const filtroDeCategoria = query(collectionItems, where("category", "==", category))
+    const consulta = getDocs(filtroDeCategoria)
+
+    consulta
+      .then((resultado)=>{
+        const productos_mapeados = resultado.docs.map(reference=>{
+        const aux = reference.data()
+        aux.id = reference.id
+        return aux
+      })
+      setItems(productos_mapeados)
+      })
+      .catch((error)=>{
+        console.log(error)
+      }) 
+    } else {
       const collectionItems = collection(db, "items")
       const consulta = getDocs(collectionItems)
 
-      consulta
-        .then((resultado)=>{
-          const productos_mapeados = resultado.docs.map(reference=>{
-            const aux = reference.data()
-            aux.id = reference.id
-            return aux
-        })
-        setItems(productos_mapeados)
-        })
-        .catch((error)=>{
-          console.log(error)
-        }) 
-  }, [categoryId])
-
-/*   useEffect(() => {
-
-    fetch(`https://fakestoreapi.com/products/category/${categoryId}`)
-    .then((response) => {
-      const p = response.json()
-      return p
-    })
-    .then((products) => {
-      setItems(products)
-    })
-    .catch((error) => {
-      console.log(error)
-    })}, [categoryId]) */
+    consulta
+      .then((resultado)=>{
+        const productos_mapeados = resultado.docs.map(reference=>{
+        const aux = reference.data()
+        aux.id = reference.id
+        return aux
+      })
+      setItems(productos_mapeados)
+      })
+      .catch((error)=>{
+        console.log(error)
+      })
+    }
+  }, [category])
 
     return (
       <>
