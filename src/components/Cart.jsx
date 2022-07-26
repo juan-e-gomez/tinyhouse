@@ -1,6 +1,8 @@
 import React, {useContext} from "react";
 import { CartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+
     
 const Cart = () => {
 
@@ -19,13 +21,24 @@ const Cart = () => {
         console.log(user);
     }
 
+    let deleteItem = (id) => {
+        cartValues.removeItem(id)
+
+    }
+
+
+        
+
     return (
-        <div className="container-fluid">
+        <div id="cart" className="container-fluid">
             <h2>El carrito contiene: </h2>
-            <div  style={{ margin: '10px 20px', padding: '10px 20px' }}>
+            <div style={{ margin: '10px 20px', padding: '10px 20px' }}>
                 {actualCart.map(({ title, price, index, quantity }) => (
-                <li key={index}> {quantity} x {title} - U$S {price} </li>
+                <li key={index}> {quantity} x {title} - U$S {quantity*price} <button key={index} onClick={() => deleteItem({index})} className="material-symbols-outlined">delete</button></li>
                 ))}
+            </div>
+            <div>
+                <h3>Total: U$S {cartValues.precio_total}</h3>
             </div>
             <form  style={{ margin: '10px 20px', padding: '10px 20px' }} key="form" onSubmit={handleSubmit}>
                 <div style={{ padding: '10px 20px' }}>
@@ -44,4 +57,4 @@ const Cart = () => {
     )
 }
 
-export default Cart
+export default Cart;
