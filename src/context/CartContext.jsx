@@ -21,7 +21,7 @@ export const CartProvider = ({ children }) => {
             console.log(cant)
             setPrecioTotal(precio_total + item.price * cant)
             setCantidadTotal(cantidad_total + cant)
-            setCarrito([...carrito, item])
+            setCarrito([...carrito, {...item, quantity: cant}])
 
 
             Swal.fire({
@@ -58,7 +58,7 @@ export const CartProvider = ({ children }) => {
                 confirmButtonText: 'Ok'
             })
 
-            setCarrito(carrito.filter(item => item.id !== item.id))
+            setCarrito(carrito.filter(item => item.id !== selectedItem.id))
         }
     }
 

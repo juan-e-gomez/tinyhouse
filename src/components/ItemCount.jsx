@@ -12,7 +12,7 @@ function ItemCount({ stock, initial, onAdd}) {
             
         } else {
             Swal.fire({
-                title: '¡No hay stock!',
+                title: '¡No hay más stock!',
                 text: `${stock} unidades disponibles`,
                 icon: 'error',
                 confirmButtonText: 'Ok'
@@ -45,8 +45,8 @@ function ItemCount({ stock, initial, onAdd}) {
             <button className="btn btn-success mx-lg-2" onClick={removeItem}> -1 </button>
             <span className="mx-lg-2">  {count}  </span>
             <button className="btn btn-success mx-lg-2" onClick={add}> +1 </button>
-            <button className="btn btn-success mx-lg-2" onClick={confirm}> Confirmar </button>
-            <Link className="btn btn-success mx-lg-2" to="/carrito"> Terminar mi compra </Link>
+            <button className="btn btn-success mx-lg-2" onClick={confirm}> Agregar </button>
+            <Link className="btn btn-success mx-lg-2" to="/carrito"> Ir al carrito </Link>
         </div>
         
     );
