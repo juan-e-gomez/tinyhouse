@@ -9,7 +9,7 @@ const Main = () => {
         <main className="container-fluid">
             <Routes>
                 <Route path="/" element={<ItemListContainer greeting={"Bienvenidos!"}/>} />
-                <Route path="/category/:category" element={<ItemListContainer greeting={"Una categoría"}/>} />
+                <Route path="/category/:category" element={<ItemListContainer greeting={"Bienvenidos!"}/>} />
                 <Route path="/item/:id" element={<ItemDetailContainer />} />
                 <Route path="/carrito" element={<Cart />} />
                 <Route path="/checkout" element={<Checkout />} />

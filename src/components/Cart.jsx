@@ -1,9 +1,7 @@
 import React, {useContext} from "react";
 import { CartContext } from "../context/CartContext";
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import { useState } from "react";
-import ItemCount from "./ItemCount";
-import Checkout from "./Checkout";
+import { useNavigate } from "react-router-dom";
+
 
     
 const Cart = () => {
@@ -22,19 +20,23 @@ const Cart = () => {
         const email = document.getElementById("email").value;
         const tel = document.getElementById("number").value;
         const date = new Date();
-        
-        let userData = {
-            nombre: nombre,
-            email: email,
-            tel: tel,
-            date: date,
-            items: actualCart
+
+        if(nombre === "" || email === "" || tel === ""){
+            alert("Por favor, complete todos los campos");
+        } else {
+            let userData = {
+                nombre: nombre,
+                email: email,
+                tel: tel,
+                date: date,
+                items: actualCart
+            }
+            console.log(userData);
+
+            localStorage.setItem("userData", JSON.stringify(userData));
+
+            navigate("/checkout");
         }
-        console.log(userData);
-
-        localStorage.setItem("userData", JSON.stringify(userData));
-
-        navigate("/checkout");
     }
 
     
@@ -66,7 +68,7 @@ const Cart = () => {
                     <input type="email" id="email" placeholder="e-mail"/>
                 </div>
                 <div style={{ padding: '10px 20px' }}>
-                    <input type="number" id="number" placeholder="Telefono"/>
+                    <input type="tel" id="number" placeholder="Telefono"/>
                 </div> 
                 <button className="btn btn-success mx-lg-2" type="submit" to="/checkout"> Crear orden de compra </button>
             </form>

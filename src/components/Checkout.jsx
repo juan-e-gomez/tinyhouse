@@ -2,15 +2,16 @@ import { db } from '../firebase'
 import { collection, addDoc } from "firebase/firestore"
 import { CartContext } from '../context/CartContext'
 import { useContext , useState } from 'react'
-import { Swal } from 'sweetalert2'
-import { Navigate } from 'react-router-dom'
-import { async } from '@firebase/util'
+import { useNavigate } from 'react-router-dom'
+import Swal from "sweetalert2"
+
 
 const Checkout = () => {
 
     const [purchaseId, setPurchaseId] = useState('')
 
     const cartValues = useContext(CartContext);
+    const navigate = useNavigate();
 
     const purchasedetails = localStorage.getItem("userData");
     const userData = JSON.parse(purchasedetails);
@@ -35,6 +36,19 @@ const Checkout = () => {
             .catch(error=>{
                 console.log(error)
             })
+
+        Swal.fire({
+            title: '¡Orden de compra realizada con éxito!',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+        })
+
+
+        cartValues.clearCart()
+
+        // navigate home
+        navigate("/")
+
     }
 
 

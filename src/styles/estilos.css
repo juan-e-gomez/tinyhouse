@@ -108,3 +108,9 @@ a.active {
 .detail-image {
   width: 250px;
 }
+
+#logo {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
